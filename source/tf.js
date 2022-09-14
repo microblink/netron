@@ -2492,18 +2492,16 @@ tf.Utility = class {
                 case 'b':
                     objectContent.set(k,new tf.FuncAttr("b", v.b));
                     break;
-                // case 'shape':
-                //     this._type = 'shape';
-                //     this._value = new tf.TensorShape(value.shape);
-                //     break;
+                case 'shape':
+                    objectContent.set(k, new tf.FuncAttr("shape", new tf.TensorShape(v.shape)));
+                    break;
                 case 's':
                     objectContent.set(k,new tf.FuncAttr("s", tf.Utility.decodeText(v.s)));
                     break;
-                // case 'tensor': {
-                //     this._type = 'tensor';
-                //     this._value = new tf.Tensor(value.tensor);
-                //     break;
-                // }
+                case 'tensor': {
+                    objectContent.set(k, new tf.FuncAttr("tensor", new tf.Tensor(v.tensor)));
+                    break;
+                }
                 case 'func': {
                     objectContent.set(k, new tf.FuncAttr("func", this.buildFuncAttrObj(v.func)));
                     break;
